@@ -26,6 +26,8 @@ const FormikTextInput = ({ name, ...props }) => {
   const [field, meta, helpers] = useField(name);
   const showError = meta.touched && meta.error;
 
+  const inputStyle = [styles.inputStyle, showError ? styles.errorInput : {}];
+
   return (
     <>
       <TextInput
@@ -33,7 +35,7 @@ const FormikTextInput = ({ name, ...props }) => {
         onBlur={() => helpers.setTouched(true)}
         value={field.value}
         error={showError}
-        style={styles.inputStyle}
+        style={inputStyle}
         {...props}
       />
       {showError && <Text style={styles.errorText}>{meta.error}</Text>}
