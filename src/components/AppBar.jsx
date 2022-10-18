@@ -30,7 +30,7 @@ const AppBar = () => {
           <View><Text style={styles.headingText}>Repositories</Text></View>
         </Link>
         <Link to="/signin">
-          <View><Text style={styles.headingText}>Sign in</Text></View>
+          <View><Text style={styles.headingText}>Sign In</Text></View>
         </Link>
     </ScrollView>
   </View>);

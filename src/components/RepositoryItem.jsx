@@ -5,7 +5,7 @@ const RepositoryItem = ({ item }) => {
 
   const styles = StyleSheet.create({
     itemContainer: {
-      borderBottomColor: theme.secondaryTextColor,
+      borderBottomColor: theme.colors.textDark,
       borderBottomWidth: 1,
     },
     infoView: {
@@ -28,7 +28,7 @@ const RepositoryItem = ({ item }) => {
       marginBottom: 5
     },
     statTitle: {
-      color: theme.secondaryTextColor,
+      color: theme.colors.textDark,
       textAlign: 'center'
     },
     img: {
@@ -40,7 +40,7 @@ const RepositoryItem = ({ item }) => {
       padding: 4,
       marginTop: 4,
       display: 'inline-block',
-      backgroundColor: theme.accentColor,
+      backgroundColor: theme.colors.primary,
       borderRadius: 6
     },
     languageText: {
@@ -52,7 +52,7 @@ const RepositoryItem = ({ item }) => {
       marginBottom: 4
     },
     descriptionText: {
-      color: theme.secondaryTextColor,
+      color: theme.colors.textGrey,
       fontSize: theme.titleTextSize
     },
     detailsBox: {
