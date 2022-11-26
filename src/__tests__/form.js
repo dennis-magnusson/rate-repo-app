@@ -64,10 +64,8 @@ describe('Form', () => {
 
 describe('Greeting', () => {
     it('renders a name on the screen', () => {
-        const { debug, getByText } = render(<Greeting name="Dennis" />);
+        const { getByText } = render(<Greeting name="Dennis" />);
 
-        debug();
-        
         expect(getByText('Dennis')).toBeDefined();
     });
 });

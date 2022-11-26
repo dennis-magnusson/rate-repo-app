@@ -2,7 +2,7 @@ import { Pressable, StyleSheet, View } from "react-native";
 import theme from "../../theme";
 import Text from "./Text";
 
-const SubmitButton = ({ label, onSubmit }) => {
+const SubmitButton = ({ label, onSubmit, ...props }) => {
 
     const styles = StyleSheet.create({
         text: {
@@ -21,7 +21,7 @@ const SubmitButton = ({ label, onSubmit }) => {
 
     return (
         
-        <Pressable onPress={onSubmit}>
+        <Pressable onPress={onSubmit} {...props}>
             <View style={styles.background}>
                 <Text style={styles.text}>{label}</Text>
             </View>
