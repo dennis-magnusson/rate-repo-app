@@ -78,30 +78,30 @@ const RepositoryItem = ({ item }) => {
   }
 
   return (
-    <View style={styles.itemContainer}>
+    <View testID='repositoryItem' style={styles.itemContainer}>
       <View style={styles.infoView}>
         <Image style={styles.img} source={{ uri: item.ownerAvatarUrl }} />
         <View style={styles.detailsBox}>
-          <Text style={styles.nameText}>{item.fullName}</Text>
-          <Text style={styles.descriptionText}>{item.description}</Text>
-          <View style={styles.languageTag}><Text style={styles.languageText}>{item.language}</Text></View>
+          <Text testID="fullName" style={styles.nameText}>{item.fullName}</Text>
+          <Text testID="description" style={styles.descriptionText}>{item.description}</Text>
+          <View style={styles.languageTag}><Text testID="language" style={styles.languageText}>{item.language}</Text></View>
         </View>
       </View>
       <View style={styles.statsBar}>
         <View style={styles.statBox}>
-          <Text style={styles.statValueText}>{parseNumber(item.stargazersCount)}</Text>
+          <Text testID="stargazersCount" style={styles.statValueText}>{parseNumber(item.stargazersCount)}</Text>
           <Text style={styles.statTitle}>Stars</Text>
         </View>
         <View style={styles.statBox}>
-          <Text style={styles.statValueText}>{parseNumber(item.forksCount)}</Text>
+          <Text testID="forksCount" style={styles.statValueText}>{parseNumber(item.forksCount)}</Text>
           <Text style={styles.statTitle}>Forks</Text>
         </View>
         <View style={styles.statBox}>
-          <Text style={styles.statValueText}>{parseNumber(item.reviewCount)}</Text>
+          <Text testID="reviewCount" style={styles.statValueText}>{parseNumber(item.reviewCount)}</Text>
           <Text style={styles.statTitle}>Reviews</Text>
         </View>
         <View style={styles.statBox}>
-          <Text style={styles.statValueText}>{parseNumber(item.ratingAverage)}</Text>
+          <Text testID="ratingAverage" style={styles.statValueText}>{parseNumber(item.ratingAverage)}</Text>
           <Text style={styles.statTitle}>Rating</Text>
         </View>
       </View> 
