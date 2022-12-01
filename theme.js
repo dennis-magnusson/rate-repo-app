@@ -16,6 +16,7 @@ const theme = {
         error: '#d73a4a',
     },
     titleTextSize: 16,
+    secondaryTextSize: 14,
     text: {
         font: Platform.select({
           android: 'Roboto',

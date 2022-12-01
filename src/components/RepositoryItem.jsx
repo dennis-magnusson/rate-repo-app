@@ -1,13 +1,11 @@
-import { Image, StyleSheet, View } from "react-native";
+import * as Linking from "expo-linking";
+import { Image, Pressable, StyleSheet, View } from "react-native";
 import theme from "../../theme";
 import Text from "./Text";
 
-const RepositoryItem = ({ item }) => {
+const RepositoryItem = ({ item, showLinkToGithub }) => {
   const styles = StyleSheet.create({
-    itemContainer: {
-      borderBottomColor: theme.colors.textDark,
-      borderBottomWidth: 1,
-    },
+    itemContainer: {},
     infoView: {
       display: "flex",
       padding: 10,
@@ -63,7 +61,24 @@ const RepositoryItem = ({ item }) => {
       justifyContent: "space-around",
       flexShrink: 1,
     },
+    button: {
+      padding: 20,
+      margin: 10,
+      fontSize: theme.titleTextSize,
+      fontWeight: "bold",
+      color: theme.colors.textWhite,
+      textAlign: "center",
+      display: "inline-block",
+      backgroundColor: theme.colors.primary,
+      borderRadius: 6, 
+    },
   });
+
+  const handleLinkPress = () => {
+    if (showLinkToGithub) {
+      Linking.openURL(item.url);
+    }
+  };
 
   // Parse number to thousands with k, for example 1000 => 1,0k or 4120 => 4,1k
   const parseNumber = (value) => {
@@ -119,6 +134,13 @@ const RepositoryItem = ({ item }) => {
           <Text style={styles.statTitle}>Rating</Text>
         </View>
       </View>
+      {showLinkToGithub ? (
+        <Pressable onPress={handleLinkPress}>
+          <Text style={styles.button}>Open in GitHub</Text>
+        </Pressable>
+      ) : (
+        <></>
+      )}
     </View>
   );
 };
