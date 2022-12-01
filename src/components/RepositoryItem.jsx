@@ -76,7 +76,7 @@ const RepositoryItem = ({ item, showLinkToGithub }) => {
 
   const handleLinkPress = () => {
     if (showLinkToGithub) {
-      Linking.openURL(item.url);
+      Linking.openURL(item?.url);
     }
   };
 
@@ -93,17 +93,17 @@ const RepositoryItem = ({ item, showLinkToGithub }) => {
   return (
     <View testID="repositoryItem" style={styles.itemContainer}>
       <View style={styles.infoView}>
-        <Image style={styles.img} source={{ uri: item.ownerAvatarUrl }} />
+        <Image style={styles.img} source={{ uri: item?.ownerAvatarUrl }} />
         <View style={styles.detailsBox}>
           <Text testID="fullName" style={styles.nameText}>
-            {item.fullName}
+            {item?.fullName}
           </Text>
           <Text testID="description" style={styles.descriptionText}>
-            {item.description}
+            {item?.description}
           </Text>
           <View style={styles.languageTag}>
             <Text testID="language" style={styles.languageText}>
-              {item.language}
+              {item?.language}
             </Text>
           </View>
         </View>
@@ -111,25 +111,25 @@ const RepositoryItem = ({ item, showLinkToGithub }) => {
       <View style={styles.statsBar}>
         <View style={styles.statBox}>
           <Text testID="stargazersCount" style={styles.statValueText}>
-            {parseNumber(item.stargazersCount)}
+            {parseNumber(item?.stargazersCount)}
           </Text>
           <Text style={styles.statTitle}>Stars</Text>
         </View>
         <View style={styles.statBox}>
           <Text testID="forksCount" style={styles.statValueText}>
-            {parseNumber(item.forksCount)}
+            {parseNumber(item?.forksCount)}
           </Text>
           <Text style={styles.statTitle}>Forks</Text>
         </View>
         <View style={styles.statBox}>
           <Text testID="reviewCount" style={styles.statValueText}>
-            {parseNumber(item.reviewCount)}
+            {parseNumber(item?.reviewCount)}
           </Text>
           <Text style={styles.statTitle}>Reviews</Text>
         </View>
         <View style={styles.statBox}>
           <Text testID="ratingAverage" style={styles.statValueText}>
-            {parseNumber(item.ratingAverage)}
+            {parseNumber(item?.ratingAverage)}
           </Text>
           <Text style={styles.statTitle}>Rating</Text>
         </View>
