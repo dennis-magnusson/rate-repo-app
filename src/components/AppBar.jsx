@@ -41,11 +41,14 @@ const AppBar = () => {
           </View>
         </Link>
         {data?.me ? (
-          <View>
+          <>
+            <Link to="/create-review">
+              <Text style={styles.headingText}>Create a review</Text>
+            </Link>
             <Text onPress={signOut} style={styles.headingText}>
               Sign Out ({data?.me.username})
             </Text>
-          </View>
+          </>
         ) : (
           <Link to="/signin">
             <View>

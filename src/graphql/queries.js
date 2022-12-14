@@ -25,23 +25,23 @@ export const GET_REPOSITORY_BY_ID = gql`
 `;
 
 export const GET_REVIEWS = gql`
-  query Reviews ($id: ID!) {
-      repository(id: $id) {
-        id
-        reviews {
-          edges {
-            node {
+  query Reviews($id: ID!) {
+    repository(id: $id) {
+      id
+      reviews {
+        edges {
+          node {
+            id
+            text
+            rating
+            createdAt
+            user {
               id
-              text
-              rating
-              createdAt
-              user {
-                id
-                username
-              }
+              username
             }
           }
-        }   
+        }
+      }
     }
   }
 `;

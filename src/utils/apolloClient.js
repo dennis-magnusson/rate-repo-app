@@ -26,6 +26,7 @@ const createApolloClient = (authStorage) => {
   return new ApolloClient({
     link: authLink.concat(httpLink),
     cache: new InMemoryCache(),
+    onError: (error) => {console.log(error)}
   });
 };
 export default createApolloClient;

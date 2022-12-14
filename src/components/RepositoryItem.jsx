@@ -1,6 +1,7 @@
 import * as Linking from "expo-linking";
-import { Image, Pressable, StyleSheet, View } from "react-native";
+import { Image, StyleSheet, View } from "react-native";
 import theme from "../../theme";
+import Button from "./Button";
 import Text from "./Text";
 
 const RepositoryItem = ({ item, showLinkToGithub }) => {
@@ -61,17 +62,7 @@ const RepositoryItem = ({ item, showLinkToGithub }) => {
       justifyContent: "space-around",
       flexShrink: 1,
     },
-    button: {
-      padding: 20,
-      margin: 10,
-      fontSize: theme.titleTextSize,
-      fontWeight: "bold",
-      color: theme.colors.textWhite,
-      textAlign: "center",
-      display: "inline-block",
-      backgroundColor: theme.colors.primary,
-      borderRadius: 6, 
-    },
+    button: theme.screenWideButton,
   });
 
   const handleLinkPress = () => {
@@ -135,9 +126,7 @@ const RepositoryItem = ({ item, showLinkToGithub }) => {
         </View>
       </View>
       {showLinkToGithub ? (
-        <Pressable onPress={handleLinkPress}>
-          <Text style={styles.button}>Open in GitHub</Text>
-        </Pressable>
+        <View style={{ margin: 10 }}><Button onPress={handleLinkPress} text="Open in GitHub" /></View>
       ) : (
         <></>
       )}

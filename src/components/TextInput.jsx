@@ -1,8 +1,8 @@
-import { StyleSheet, TextInput as NativeTextInput } from 'react-native';
-import theme from '../../theme';
+import { StyleSheet, TextInput as NativeTextInput } from "react-native";
+import theme from "../../theme";
 
 const styles = StyleSheet.create({
-  fontFamily: theme.text.font
+  fontFamily: theme.text.font,
 });
 
 // eslint-disable-next-line no-unused-vars
