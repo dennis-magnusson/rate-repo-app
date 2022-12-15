@@ -50,11 +50,16 @@ const AppBar = () => {
             </Text>
           </>
         ) : (
-          <Link to="/signin">
-            <View>
-              <Text style={styles.headingText}>Sign In</Text>
-            </View>
-          </Link>
+          <>
+            <Link to="/signin">
+              <View>
+                <Text style={styles.headingText}>Sign In</Text>
+              </View>
+            </Link>
+            <Link to="/signup">
+              <Text style={styles.headingText}>Sign Up</Text>
+            </Link>
+          </>
         )}
       </ScrollView>
     </View>

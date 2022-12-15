@@ -14,8 +14,6 @@ const useCreateReview = () => {
       },
     });
 
-    console.log(response)
-
     return response.data.createReview;
   };
   return [createReview, result];

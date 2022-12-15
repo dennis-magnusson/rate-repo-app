@@ -1,4 +1,5 @@
 import { Formik } from "formik";
+import { useState } from "react";
 import { useNavigate } from "react-router-native";
 import * as yup from "yup";
 import useSignIn from "../hooks/useSignIn";
@@ -14,20 +15,21 @@ const initialValues = {
   password: "",
 };
 
-export const SignInContainer = ({ onSubmit }) => {
+export const SignInContainer = ({ onSubmit, error }) => {
   return (
     <Formik
       initialValues={initialValues}
       validationSchema={validationSchema}
       onSubmit={onSubmit}
     >
-      {({ handleSubmit }) => <SignInForm onSubmit={handleSubmit} />}
+      {({ handleSubmit }) => <SignInForm onSubmit={handleSubmit} error={error} />}
     </Formik>
   );
 };
 
 const SignInPage = () => {
   const [signIn] = useSignIn();
+  const [error, setError] = useState(null);
   const navigate = useNavigate();
 
   const onSubmit = async (values) => {
@@ -37,11 +39,15 @@ const SignInPage = () => {
       await signIn({ username, password });
       navigate("/");
     } catch (e) {
-      console.log(e);
+      console.log(e.message);
+      setError(`${e.message}`);
+      setTimeout(() => {
+        setError(null);
+      }, 4000);
     }
   };
 
-  return <SignInContainer onSubmit={onSubmit} />;
+  return <SignInContainer onSubmit={onSubmit} error={error} />;
 };
 
 export default SignInPage;

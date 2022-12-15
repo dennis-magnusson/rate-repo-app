@@ -4,7 +4,7 @@ import FormikTextInput from "./FormikTextInput";
 import SubmitButton from "./SubmitButton";
 import Text from "./Text";
 
-const SignInForm = ({ onSubmit, error }) => {
+const SignUpForm = ({ onSubmit, error }) => {
   return (
     <View style={{ margin: 10 }}>
       <FormikTextInput
@@ -18,6 +18,12 @@ const SignInForm = ({ onSubmit, error }) => {
         placeholder="Password"
         secureTextEntry
       />
+      <FormikTextInput
+        testID="passwordConfirmationField"
+        name="passwordConfirmation"
+        placeholder="Confirm password"
+        secureTextEntry
+      />
       {error && (
         <Text
           style={{
@@ -29,9 +35,9 @@ const SignInForm = ({ onSubmit, error }) => {
           {error}
         </Text>
       )}
-      <SubmitButton testID="submitBtn" label="Sign In" onSubmit={onSubmit} />
+      <SubmitButton testID="submitBtn" label="Sign Up" onSubmit={onSubmit} />
     </View>
   );
 };
 
-export default SignInForm;
+export default SignUpForm;
