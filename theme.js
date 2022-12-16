@@ -34,6 +34,23 @@ const theme = {
     backgroundColor: "#0366d6", // colors.primary
     borderRadius: 6,
   },
+  inputStyle: {
+    borderWidth: 1,
+    borderColor: "#d3d3d3",
+    borderRadius: 5,
+    padding: 12,
+    marginVertical: 8,
+  },
+  errorText: {
+    color: "#d73a4a",
+    marginTop: 5,
+    marginLeft: 10,
+    marginRight: 10,
+    marginBottom: 5,
+  },
+  errorInput: {
+    borderColor: "#d73a4a",
+  }
 };
 
 export default theme;

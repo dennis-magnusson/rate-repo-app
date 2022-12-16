@@ -4,23 +4,9 @@ import theme from '../../theme';
 import Text from './Text';
 
 const styles = StyleSheet.create({
-  inputStyle: {
-    borderWidth: 1,
-    borderColor: theme.colors.textLightGrey,
-    borderRadius: 5,
-    padding: 12,
-    marginVertical: 8,
-  },
-  errorText: {
-    color: theme.colors.error,
-    marginTop: 5,
-    marginLeft: 10,
-    marginRight: 10,
-    marginBottom: 5,
-  },
-  errorInput: {
-    borderColor: theme.colors.error,
-  }
+  inputStyle: theme.inputStyle,
+  errorText: theme.errorText,
+  errorInput: theme.errorInput
 });
 
 const FormikTextInput = ({ name, ...props }) => {

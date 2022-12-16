@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-native";
+import { useDebounce } from "use-debounce";
 import useRepositories from "../hooks/useRepositories";
 import RepositoryListContainer from "./RepositoryListContainer";
 
@@ -19,7 +21,10 @@ const sortByVariables = {
 
 const RepositoryList = () => {
   const [order, setOrder] = useState("latest");
-  const data = useRepositories(sortByVariables[order]);
+  const navigate = useNavigate();
+  const [searchQuery, setSearchQuery] = useState("");
+  const [searchKeyword] = useDebounce(searchQuery);
+  const data = useRepositories(sortByVariables[order], searchKeyword);
 
   const repositories = data?.repositories;
 
@@ -30,6 +35,9 @@ const RepositoryList = () => {
       onChange={(order) => {
         setOrder(order);
       }}
+      onRepositoryPress={(id) => navigate(`/repository/${id}`)}
+      searchQuery={searchQuery}
+      setSearchQuery={setSearchQuery}
     />
   );
 };
