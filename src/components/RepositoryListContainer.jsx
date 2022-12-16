@@ -2,6 +2,7 @@ import { FlatList, Pressable, StyleSheet, View } from "react-native";
 import { useNavigate } from "react-router-native";
 import theme from "../../theme";
 import RepositoryItem from "./RepositoryItem";
+import SortingPicker from "./SortingPicker";
 
 const styles = StyleSheet.create({
   separator: {
@@ -12,9 +13,12 @@ const styles = StyleSheet.create({
 
 const ItemSeparator = () => <View style={styles.separator} />;
 
-const RepositoryListContainer = ({ repositories }) => {
-  const navigate = useNavigate();
+const RepositoryListHeader = ({ selectedValue, onChange }) => {
+  return <SortingPicker selectedValue={selectedValue} onChange={onChange} />;
+};
 
+const RepositoryListContainer = ({ repositories, order, onChange }) => {
+  const navigate = useNavigate();
 
   const repositoryNodes = repositories
     ? repositories.edges.map((edge) => edge.node)
@@ -22,7 +26,11 @@ const RepositoryListContainer = ({ repositories }) => {
 
   const renderItem = ({ item }) => {
     return (
-      <Pressable onPress={() => {navigate(`../repository/${item.id}`)}}>
+      <Pressable
+        onPress={() => {
+          navigate(`../repository/${item.id}`);
+        }}
+      >
         <RepositoryItem item={item} />
       </Pressable>
     );
@@ -32,6 +40,7 @@ const RepositoryListContainer = ({ repositories }) => {
     <FlatList
       data={repositoryNodes}
       ItemSeparatorComponent={ItemSeparator}
+      ListHeaderComponent={ <RepositoryListHeader onChange={onChange} selectedValue={order} /> }
       renderItem={renderItem}
     />
   );
