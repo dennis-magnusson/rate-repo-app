@@ -28,6 +28,10 @@ const RepositoryList = () => {
 
   const repositories = data?.repositories;
 
+  const onEndReached = () => {
+    data?.fetchMore()
+  }
+
   return (
     <RepositoryListContainer
       repositories={repositories}
@@ -38,6 +42,7 @@ const RepositoryList = () => {
       onRepositoryPress={(id) => navigate(`/repository/${id}`)}
       searchQuery={searchQuery}
       setSearchQuery={setSearchQuery}
+      onEndReached={onEndReached}
     />
   );
 };

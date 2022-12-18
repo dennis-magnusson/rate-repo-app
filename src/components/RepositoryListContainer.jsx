@@ -70,6 +70,8 @@ export class RepositoryListContainer extends React.Component {
         data={repositoryNodes}
         ItemSeparatorComponent={ItemSeparator}
         renderItem={this.renderItem}
+        onEndReached={this.props.onEndReached}
+        onEndReachedThreshold={0.5}
       />
     );
   }
