@@ -62,10 +62,34 @@ export const GET_REPOSITORY_BY_ID = gql`
 `;
 
 export const GET_USER = gql`
-  query {
+  query getUser($includeReviews: Boolean = false) {
     me {
       id
       username
+      reviews @include(if: $includeReviews) {
+        edges {
+          node {
+            id
+            text
+            rating
+            createdAt
+            user {
+              id
+              username
+            }
+            repository {
+              name
+              ownerName
+            }
+          }
+          cursor
+        }
+        pageInfo {
+          endCursor
+          startCursor
+          hasNextPage
+        }
+      }
     }
   }
 `;
