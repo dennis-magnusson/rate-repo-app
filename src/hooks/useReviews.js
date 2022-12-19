@@ -5,15 +5,13 @@ const useReviews = () => {
   const variables = {
     includeReviews: true
   };
-  const { data, error, loading, fetchMore, ...result } = useQuery(
+  const { data, error, loading, fetchMore, refetch, ...result } = useQuery(
     GET_USER,
     {
       fetchPolicy: "cache-and-network",
       variables: { ...variables },
     }
   );
-
-  console.log(data);
 
   const handleFetchMore = () => {
     const canFetchMore =
@@ -30,7 +28,7 @@ const useReviews = () => {
   };
 
 
-  return { reviews: data?.me?.reviews, error, loading, fetchMore: handleFetchMore, result };
+  return { reviews: data?.me?.reviews, error, loading, fetchMore: handleFetchMore, refetch, result };
 };
 
 export default useReviews;

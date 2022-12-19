@@ -77,7 +77,9 @@ export const GET_USER = gql`
               id
               username
             }
+            repositoryId
             repository {
+              id
               name
               ownerName
             }
